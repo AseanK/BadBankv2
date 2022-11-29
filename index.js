@@ -1,7 +1,7 @@
 var express = require('express');
 var app     = express();
 var cors    = require('cors');
-var dal     = require('./dal.js');
+var dal     = require('./app.js');
 
 const port = process.env.PORT || 3030;
 
@@ -93,9 +93,9 @@ app.get('/account/update/:email/:amount', function (req, res) {
 app.get('/account/all', function (req, res) {
 
     dal.all().
-        then((docs) => {
-            console.log(docs);
-            res.send(docs);
+        then((users) => {
+            console.log(users);
+            res.send(users);
     });
 });
 
